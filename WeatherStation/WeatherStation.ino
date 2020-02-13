@@ -89,6 +89,7 @@ float get_voltage(String type) {
 }
 
 void loop() {
+  // Init and populate struct full of data
   payload c_payload;
   c_payload.humidity = HumidityLib.getRH();
   c_payload.humidity_temp = HumidityLib.getTemp();
@@ -99,7 +100,7 @@ void loop() {
   c_payload.battery = get_voltage(battery);
   c_payload.light = get_voltage(battery);
   
-
+  // Send it to the Pi over UART
   
   delay(100); // Time (milliseconds) between messages to Pi
 }
